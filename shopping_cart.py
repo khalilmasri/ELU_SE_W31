@@ -1,6 +1,5 @@
 def calculate_total(cart):
     total = 0
-    total_items = len(cart)
     for item in cart:
         total += item['price']
     return total
