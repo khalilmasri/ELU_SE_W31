@@ -5,8 +5,8 @@ def CalculateTotal(cart):
         total += item['price']
     return total
 
-def display_total(Total):
-    print("Total price: " + Total)
+def display_total(total):
+    print("Total price: " + total)
 
 CART = [
     {'name': 'Item A', 'price': 10.99},
