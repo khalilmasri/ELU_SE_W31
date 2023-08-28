@@ -1,7 +1,10 @@
 def calculate_total(cart):
     total = 0
     for item in cart:
-        total += item['price']
+        if 'price' in item and isinstance(item['price'], (int, float)):
+            total += item['price']
+        else:
+            print(f"Invalid price for item {item.get('name')}")
     return total
 
 def display_total(total):
