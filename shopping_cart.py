@@ -8,7 +8,10 @@ def calculate_total(cart):
     return total
 
 def display_total(total):
-    print(f"Total price: ${total}")
+    if total:
+        print(f"Total price: ${total}")
+    else:
+        print("Invalid total price. Cart may be empty!")
 
 CART = [
     {'name': 'Item A', 'price': 10.99},
