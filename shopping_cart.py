@@ -1,10 +1,8 @@
 def calculate_total(cart):
     """
     Calculate the total price of items in the cart.
-    
     Parameters:
     cart (list): List of dictionaries representing items in the cart.
-    
     Returns:
     float: Total price of all items.
     """
@@ -19,7 +17,6 @@ def calculate_total(cart):
 def display_total(total):
     """
     Display items in the cart with their names and prices.
-    
     Parameters:
     cart (list): List of dictionaries representing items in the cart.
     """
@@ -28,14 +25,17 @@ def display_total(total):
     else:
         print("Invalid total price. Cart may be empty!")
 
-cart = [
-    {'name': 'Item A', 'price': 10.99},
-    {'name': 'Item B', 'price': 5.99},
-    {'name': 'Item C', 'price': 8.49}
-]
 
-for item in cart:
-    print(f"Item: {item['name']} - Price: ${item['price']}")
+if __name__ == '__main__':
+    cart = [
+        {'name': 'Item A', 'price': 10.99},
+        {'name': 'Item B', 'price': 5.99},
+        {'name': 'Item C', 'price': 8.49}
+    ]
 
-shopping_cart_total = calculate_total(cart)
-display_total(shopping_cart_total)
+    for item in cart:
+        print(f"Item: {item['name']} - Price: ${item['price']}")
+
+    shopping_cart_total = calculate_total(cart)
+
+    display_total(shopping_cart_total)
