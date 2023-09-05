@@ -38,15 +38,15 @@ def display_total(total):
 
 
 if __name__ == '__main__':
-    cart = [
+    shopping_cart = [
         {'name': 'Item A', 'price': 10.99},
         {'name': 'Item B', 'price': 5.99},
         {'name': 'Item C', 'price': 8.49}
     ]
 
-    for item in cart:
-        print(f"Item: {item['name']} - Price: ${item['price']}")
+    for cart_item in shopping_cart:
+        print(f"Item: {cart_item['name']} - Price: ${cart_item['price']}")
 
-    shopping_cart_total = calculate_total(cart)
+    shopping_cart_total = calculate_total(shopping_cart)
 
     display_total(shopping_cart_total)
