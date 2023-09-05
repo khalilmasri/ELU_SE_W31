@@ -1,3 +1,14 @@
+"""
+Shopping Cart
+
+This script provides functionality for managing a shopping cart. It includes functions
+for calculating the total price of items in the cart and displaying the cart's contents.
+
+Functions:
+    - calculate_total(cart): Calculate the total price of items in the cart.
+    - display_total(total): Display the total price of items in the cart.
+"""
+
 def calculate_total(cart):
     """
     Calculate the total price of items in the cart.
