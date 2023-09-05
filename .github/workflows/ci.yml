@@ -1,0 +1,35 @@
+name: Quality Analysis
+
+on:
+  push:
+    branches:
+      - main  # Change to your main branch name
+
+jobs:
+  static_analysis:
+    name: Run Quality Analysis
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2 # Checks out to the latest code
+
+      - name: Set up Python
+        uses: actions/setup-python@v2 # Get the right version of python
+        with:
+          python-version: 3.8  
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt  
+
+      - name: Run Static Analysis
+        run: |
+          pylint shopping_cart.py  
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: quality-results
+          path: pylint-report.txt  
