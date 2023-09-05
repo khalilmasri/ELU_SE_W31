@@ -17,6 +17,12 @@ def calculate_total(cart):
     return total
 
 def display_total(total):
+    """
+    Display items in the cart with their names and prices.
+    
+    Parameters:
+    cart (list): List of dictionaries representing items in the cart.
+    """
     if total:
         print(f"Total price: ${total}")
     else:
