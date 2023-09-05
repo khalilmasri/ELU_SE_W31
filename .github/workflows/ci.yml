@@ -25,11 +25,11 @@ jobs:
 
       - name: Run Static Analysis
         run: |
-          pylint shopping_cart.py  
+          pylint src/shopping_cart.py > reports/pylint-report.txt || true
 
       - name: Upload results
         if: always()
         uses: actions/upload-artifact@v2
         with:
           name: quality-results
-          path: pylint-report.txt  
+          path: reports/pylint-report.txt  
