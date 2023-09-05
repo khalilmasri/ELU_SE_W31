@@ -12,16 +12,16 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2 # Checks out to the latest code
+        uses: actions/checkout@v2            # Checks out to the latest code
 
       - name: Set up Python
-        uses: actions/setup-python@v2 # Get the right version of python
+        uses: actions/setup-python@v2        # Get the right version of python
         with:
-          python-version: 3.8  
+          python-version: 3.8
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt  
+          pip install -r requirements.txt
 
       - name: Run Static Analysis
         run: |
@@ -32,30 +32,32 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: quality-results
-          path: reports/pylint-report.txt  
+          path: reports/pylint-report.txt
 
   unit_tests:
-      name: Unit Tests
-      runs-on: ubuntu-latest
+    name: Unit Tests
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v2
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-        - name: Set up Python
-          uses: actions/setup-python@v2
-          with:
-            python-version: 3.8
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
 
-        - name: Install dependencies
-          run: pip install -r requirements.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
-        - name: Run Unit Tests
-          run: python -m unittest tests/test_shopping_cart.py > reports/unittests-reports.txt || true
+      - name: Run Unit Tests
+        run: |
+          python -m unittest tests/test_shopping_cart.py > \
+          reports/unittests-report.txt || true
 
       - name: Upload unit-tests results
-          if: always()
-          uses: actions/upload-artifact@v2
-          with:
-            name: unittests-results
-            path: reports/unittest-report.txt  
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: unittests-results
+          path: reports/unittest-report.txt
